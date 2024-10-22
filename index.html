@@ -3,11 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Odin library</title>
+    <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
 </head>
 <body>
-    
+    <header>
+        <strong>The Odin bookeper!</strong>
+        <ul>
+            <li>Home</li>
+            <li>Dev GitHub</li>
+            <li>The Odin Project</li>
+        </ul>
+    </header>
+    <div class="container">
+        <div class="cardContainer">
+            <div class="card">
+                <div class="status">Read</div>
+                <strong>Title of the book</strong><br>
+                <p>Author: xxxxx</p>
+                <p>Year of release: xxxx/xx/xx</p>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias minus minima, laudantium nobis aspernatur sit odit officia maiores deserunt provident eius! Nobis error aliquid, est deleniti sequi mollitia unde accusamus!</p>
+
+            </div>
+        </div>
+        <div class="sideMenu">
+            <div class="buttons">
+                <button type="button" id="submitBook">Add new book!</button>
+                <button type="button" id="removeBook">Remove a book!</button>
+            </div>
+            <div class="listOfBooks">
+                <ul class="genre">
+                    <strong>By genre:</strong>
+                </ul>
+                <ul class="author">
+                    <strong>By author:</strong>
+                </ul>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
