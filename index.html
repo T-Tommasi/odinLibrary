@@ -6,7 +6,7 @@
     <title>Odin library</title>
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
     <header>
@@ -25,7 +25,6 @@
                 <p>Author: xxxxx</p>
                 <p>Year of release: xxxx/xx/xx</p>
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias minus minima, laudantium nobis aspernatur sit odit officia maiores deserunt provident eius! Nobis error aliquid, est deleniti sequi mollitia unde accusamus!</p>
-
             </div>
         </div>
         <div class="sideMenu">
@@ -43,5 +42,29 @@
             </div>
         </div>
     </div>
+
+    <dialog>
+        <form>
+            <div class="flex">
+                <div>
+                    <label for="bookName">Name of the book:</label>
+                    <input type="text" id="bookName">
+                </div>
+                <div>
+                    <label for="author">Name of the author:</label>
+                    <input type="text" id="author">
+                </div>
+                <div>
+                    <label for="yearRelease">Year of release:</label>
+                    <input type="text" id="yearRelease">
+                </div>
+                <div>
+                    <label for="description">Description:</label>
+                    <textarea name="description" id="description" cols="5" rows="8" placeholder="Insert here the description of your book!"></textarea>
+                </div>
+            </div>
+        </form>
+    </dialog>
+    
 </body>
 </html>
