@@ -33,13 +33,15 @@ function Library () {
 
     function closeListener(target, source) {
         source.addEventListener('click', () => {
-            target.close()
+            createBook();
+            updateCards(memorizedBooks);
+            target.close();
         })
     }
 
     function createBook() {
         let book = retrieveFormData(); //Retrieve the values from the HTML form and insert them as an object into a variable
-        newBook = new Book(book.bookName,book.author,book.yearOfRelease,book.description); //Create a newBook element
+        let newBook = new Book(book.bookName,book.author,book.yearOfRelease,book.description); //Create a newBook element
         memorizedBooks.push(newBook); //Push it to memory
         console.log('------');
         console.log(newBook);
@@ -47,21 +49,17 @@ function Library () {
         return
     }
 
-    function submitBook(button) {
-        console.log(`${button} has been pressed!`)
-        button.addEventListener('click', () => {
-            createBook();
-            console.log(`book pushed to library!`)
-            console.log(memorizedBooks)
-        })
-    }
-
     function updateCards(array) {
         const CARDCONTAINER = document.querySelector('.cardContainer')
+        purgeDOM(CARDCONTAINER) //make sure no book is repeated in the doom - since this is a low-weight operation while inefficient this is ok
         for (let book of array) {
             let bookCard = document.createElement('div');
             bookCard.classList.add('card');
-            bookCard.classList.add(`${book._bookName}`)
+            bookCard.setAttribute('data-book-name',book._bookName)
+            console.log(bookCard)
+            console.log('-----')
+
+            //create the necessary HTML elements
 
             let title = document.createElement('strong');
             title.textContent = `${book._bookName}`;
@@ -72,17 +70,21 @@ function Library () {
             let description  = document.createElement('p');
             description.textContent  = `${book._description}`;
 
+            //append the elements to the DOM
             let content = [title,author,yearOfRelease,description]
             for (let element of content) {
                 bookCard.appendChild(element)
-            }
-            if (!document.querySelector(`.${book._bookName}`)) {
                 CARDCONTAINER.appendChild(bookCard)
-            } else {
-                console.log(`the book titled: ${book._bookName} is already present in the DOM`)
             }
+            console.log(`${book._bookName} loaded!`)
+            console.log('-----')
         }
-        console.log('-----')
+    }
+
+    function purgeDOM(target) {
+        while (target.firstChild) {
+            target.removeChild(target.firstChild)
+        }
     }
 
     function initializer() {
@@ -90,5 +92,12 @@ function Library () {
         const NEWBOOKDIALOG = document.querySelector('dialog'); //should probably update this so that i can have a system for removing previously stored books... but eeeh, thats beyond what is requested for now.
         const SUBMITBOOKTOMEMORY = document.querySelector('#submitButton');
 
+        //Listeners
+        dialogListener(NEWBOOKDIALOG,NEWBOOKDIALOGBUTTON);
+        closeListener(NEWBOOKDIALOG,SUBMITBOOKTOMEMORY);
     }
+
+    initializer() //start the program
 }
+
+Library()
