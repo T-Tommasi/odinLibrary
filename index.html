@@ -31,6 +31,34 @@
         <div class="sideMenu">
             <div class="buttons">
                 <button type="button" id="submitBook">Add new book!</button>
+                <dialog class="dialogBox">
+                    <form action="">
+                        <div>
+                            <label for="title">Title:</label>
+                            <input type="text" name="" id="title">
+                        </div>
+                        <div>
+                            <label for="author">Author:</label>
+                            <input type="text" name="" id="author">
+                        </div>
+                        <div>
+                            <label for="releaseDate">Release year:</label>
+                            <input type="text" name="" id="releaseDate">
+                        </div>
+                        <div>
+                            <label for="description">Description</label>
+                            <input type="text" name="" id="description">
+                        </div>
+                        <div class="statusDialog">
+                            <label for="status">Status:</label>
+                            <div>
+                                <input type="radio" name="" id="status">Read
+                                <input type="radio" name="" id="status">To read
+                            </div>
+                        </div>
+                        <button type="submit">Confirm!</button>
+                    </form>
+                </dialog>
                 <button type="button" id="removeBook">Remove a book!</button>
             </div>
             <div class="listOfBooks">
